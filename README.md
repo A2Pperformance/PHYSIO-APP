@@ -1,6 +1,23 @@
 # 🏥 Physio App - Fiche Bilan Post-Chirurgie LCA
 
-Application web professionnelle pour la création et la gestion de fiches bilan kinésithérapie pour les patients en post-opératoire de chirurgie du **Ligament Croisé Antérieur (LCA)**.
+Application **web et desktop** professionnelle pour la création et la gestion de fiches bilan kinésithérapie pour les patients en post-opératoire de chirurgie du **Ligament Croisé Antérieur (LCA)**.
+
+## 💻 Deux versions disponibles
+
+### 🌐 Version Web (Navigateur)
+- Fonctionne dans Chrome, Firefox, Edge, Safari
+- Pas d'installation requise
+- Idéal pour tests et développement
+
+### 🖥️ Version Desktop (Application Windows/Mac/Linux)
+- **Application native** installable sur votre PC
+- **Fichier .exe pour Windows** inclus
+- Meilleure performance et intégration système
+- Fonctionne hors ligne
+- Raccourcis clavier (Ctrl+S, Ctrl+P, etc.)
+- Menu natif Windows
+
+> 📘 **Pour créer l'application Windows (.exe)**, consultez le guide complet : [INSTALLATION-WINDOWS.md](./INSTALLATION-WINDOWS.md)
 
 ## 📋 Fonctionnalités
 
@@ -34,7 +51,7 @@ Application web professionnelle pour la création et la gestion de fiches bilan 
 - Node.js 18+
 - npm ou yarn
 
-### Étapes d'installation
+### Option 1 : Version Web (Développement/Test)
 
 ```bash
 # Cloner le repository
@@ -44,18 +61,46 @@ cd PHYSIO-APP
 # Installer les dépendances
 npm install
 
-# Lancer l'application en mode développement
+# Lancer l'application en mode développement (navigateur)
 npm run dev
 
-# Construire pour la production
+# Construire pour la production web
 npm run build
 
 # Prévisualiser la version de production
 npm run preview
 ```
 
+### Option 2 : Application de Bureau (.exe Windows)
+
+```bash
+# Installer les dépendances (si pas déjà fait)
+npm install
+
+# Lancer en mode développement Electron
+npm run electron:dev
+
+# Créer le fichier .exe pour Windows
+npm run electron:build:win
+```
+
+Le fichier `.exe` sera généré dans le dossier `release/`.
+
+> 📘 **Guide complet** avec captures d'écran : [INSTALLATION-WINDOWS.md](./INSTALLATION-WINDOWS.md)
+
+### Option 3 : Autres plateformes
+
+```bash
+# macOS (.dmg)
+npm run electron:build:mac
+
+# Linux (.AppImage)
+npm run electron:build:linux
+```
+
 ## 🛠️ Technologies utilisées
 
+### Frontend
 - **React 18** : Framework UI
 - **TypeScript** : Typage statique
 - **Vite** : Build tool ultra-rapide
@@ -63,6 +108,11 @@ npm run preview
 - **React Hook Form** : Gestion des formulaires
 - **Zod** : Validation de schémas
 - **date-fns** : Manipulation des dates
+
+### Desktop (Application native)
+- **Electron** : Framework pour applications desktop cross-platform
+- **electron-builder** : Packaging et distribution
+- **Menu natif** : Intégration système Windows/Mac/Linux
 
 ## 📖 Structure du projet
 

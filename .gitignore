@@ -12,11 +12,28 @@ dist
 dist-ssr
 *.local
 
+# Electron build output
+release/
+out/
+*.exe
+*.dmg
+*.AppImage
+*.deb
+*.rpm
+*.snap
+
+# Electron cache
+.webpack/
+.cache/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
 .idea
-.DS_Store
 *.suo
 *.ntvs*
 *.njsproj
