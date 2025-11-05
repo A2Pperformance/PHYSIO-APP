@@ -1,6 +1,7 @@
 import React from 'react'
 import { FormSelect } from '../FormSelect'
 import { PainScale } from '../PainScale'
+import StrokeTest from '../StrokeTest'
 import { DouleurGonflement } from '../../types/lca-assessment'
 
 interface DouleurGonflementSectionProps {
@@ -105,6 +106,14 @@ export const DouleurGonflementSection: React.FC<DouleurGonflementSectionProps> =
             <span>Chaleur / Rougeur</span>
           </label>
         </div>
+      </div>
+
+      {/* Stroke Test intégré */}
+      <div className="mt-6">
+        <StrokeTest
+          onResult={(result) => handleChange('strokeTest', result)}
+          initialValue={data.strokeTest}
+        />
       </div>
     </div>
   )

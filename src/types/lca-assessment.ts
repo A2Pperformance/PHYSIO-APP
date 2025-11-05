@@ -26,6 +26,7 @@ export interface DouleurGonflement {
   localisationDouleur: string[];
   gonflementGenou: number; // 0-10
   epanchement: 'Absent' | 'Minime' | 'Modéré' | 'Important';
+  strokeTest?: 'Trace' | 'Petit' | 'Modéré' | 'Large'; // Stroke Test pour évaluation de l'effusion
   chaleurRouge: boolean;
 }
 
