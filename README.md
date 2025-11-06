@@ -1,6 +1,16 @@
-# 🏥 Physio App - Fiche Bilan Post-Chirurgie LCA
+# 🏥 A2P Performance - Assistant IA Kinésithérapique
 
-Application **web et desktop** professionnelle pour la création et la gestion de fiches bilan kinésithérapie pour les patients en post-opératoire de chirurgie du **Ligament Croisé Antérieur (LCA)**.
+Application **web et desktop** professionnelle avec **Assistant IA intégré** pour la création et la gestion de bilans kinésithérapiques pour les patients en post-opératoire de chirurgie du **Ligament Croisé Antérieur (LCA)**.
+
+> 🤖 **Nouveau !** Assistant IA avec génération automatique de bilans HTML professionnels, calculs intelligents et recommandations cliniques.
+
+---
+
+## 🚀 Démarrage Rapide
+
+**Première utilisation ?**
+- 📖 [Guide de démarrage rapide (5 min)](./DEMARRAGE_RAPIDE.md)
+- 📚 [Guide d'utilisation complet](./GUIDE_UTILISATION.md)
 
 ## 💻 Deux versions disponibles
 
@@ -34,15 +44,32 @@ Application **web et desktop** professionnelle pour la création et la gestion d
 - **Objectifs de traitement** : Court, moyen et long terme
 - **Plan de traitement** : Techniques manuelles, exercices, conseils patient
 
-### 🎯 Fonctionnalités avancées
+### 🤖 Assistant IA Intégré (NOUVEAU !)
+
+- 🎨 **Charte graphique A2P** : Branding professionnel cohérent
+- 📊 **Calculs automatiques avancés** :
+  - Score de récupération global (0-100)
+  - Score ROM (Range of Motion)
+  - Asymétries musculaires et déficits
+  - Amyotrophie automatique
+  - Moyenne de douleur (EVA)
+  - Phase de rééducation automatique
+- 🏆 **Badges intelligents** : Excellence, Bonne évolution, Attention, Alerte
+- 🩺 **Stroke Test intégré** : Évaluation de l'effusion avec recommandations
+- 💡 **Recommandations IA** : Conseils cliniques basés sur les données
+- 📄 **Génération HTML** : Bilans professionnels exportables
+- 💾 **Sauvegarde locale** : localStorage avec historique complet
+- 📱 **Panneau flottant** : Interface interactive 3 onglets (Aperçu/Export/Historique)
+
+### 🎯 Fonctionnalités de base
 
 - ✅ **Calculs automatiques** : Jours post-op, âge, amyotrophie
 - ✅ **Validation en temps réel** : Formulaire avec validation complète
 - ✅ **Indicateurs visuels** : Codes couleur pour les scores et mesures
 - ✅ **Suggestions intelligentes** : Exercices et techniques pré-définis
-- ✅ **Export PDF** : Impression optimisée pour archivage
+- ✅ **Export HTML/PDF** : Bilans professionnels avec charte A2P
 - ✅ **Interface responsive** : Compatible desktop, tablette et mobile
-- ✅ **Design professionnel** : Interface épurée avec Tailwind CSS
+- ✅ **Design professionnel** : Interface moderne avec Tailwind CSS
 
 ## 🚀 Installation
 
@@ -120,10 +147,12 @@ npm run electron:build:linux
 PHYSIO-APP/
 ├── src/
 │   ├── components/
-│   │   ├── sections/          # Sections du formulaire
+│   │   ├── AIAssistant.tsx         # 🤖 Assistant IA flottant
+│   │   ├── StrokeTest.tsx          # 🩺 Stroke Test interactif
+│   │   ├── sections/               # Sections du formulaire
 │   │   │   ├── PatientInfoSection.tsx
 │   │   │   ├── ChirurgieInfoSection.tsx
-│   │   │   ├── DouleurGonflementSection.tsx
+│   │   │   ├── DouleurGonflementSection.tsx  # ✨ + Stroke Test
 │   │   │   ├── BilanArticulaireSection.tsx
 │   │   │   ├── BilanMusculaireSection.tsx
 │   │   │   ├── TestsFonctionnelsSection.tsx
@@ -131,16 +160,25 @@ PHYSIO-APP/
 │   │   │   ├── ScoresSection.tsx
 │   │   │   ├── ObjectifsSection.tsx
 │   │   │   └── PlanTraitementSection.tsx
-│   │   ├── FormInput.tsx      # Composants de formulaire réutilisables
+│   │   ├── FormInput.tsx           # Composants formulaire
 │   │   ├── FormSelect.tsx
 │   │   ├── FormTextarea.tsx
 │   │   ├── PainScale.tsx
 │   │   └── LCAAssessmentForm.tsx
+│   ├── services/
+│   │   └── localStorage.ts         # 💾 Service de persistance
+│   ├── theme/
+│   │   └── a2p-theme.ts            # 🎨 Charte graphique A2P
+│   ├── utils/
+│   │   ├── calculations.ts         # 🧮 Calculs automatiques
+│   │   └── bilanGenerator.ts       # 📄 Générateur HTML
 │   ├── types/
-│   │   └── lca-assessment.ts  # Types TypeScript
+│   │   └── lca-assessment.ts       # Types TypeScript
 │   ├── App.tsx
 │   ├── main.tsx
 │   └── index.css
+├── GUIDE_UTILISATION.md            # 📖 Guide complet
+├── DEMARRAGE_RAPIDE.md             # 🚀 Démarrage 5 min
 ├── index.html
 ├── package.json
 ├── tsconfig.json
@@ -167,6 +205,10 @@ PHYSIO-APP/
 - Échelles de douleur (0-10) : repos, mouvement, nocturne
 - Localisation de la douleur
 - Niveau de gonflement
+- **🩺 Stroke Test** : Évaluation de l'effusion (Trace/Petit/Modéré/Large)
+  - Instructions visuelles interactives
+  - Classification automatique avec volume
+  - Recommandations cliniques adaptées
 - Épanchement et signes inflammatoires
 
 ### 4. Bilan Articulaire
@@ -242,12 +284,23 @@ L'application est entièrement responsive et s'adapte automatiquement:
 - 💻 Tablet : Layout en 2 colonnes
 - 🖥️ Desktop : Layout en 3 colonnes pour les grilles
 
-## 🖨️ Impression / Export PDF
+## 🖨️ Export et Impression
 
-La fiche bilan peut être imprimée ou exportée en PDF:
-1. Cliquez sur "Imprimer / Exporter PDF"
-2. Utilisez "Enregistrer au format PDF" dans les options d'impression
-3. Les boutons et éléments non imprimables sont automatiquement masqués
+### 📄 Export HTML (Nouveau !)
+1. Cliquez sur l'icône 💡 de l'assistant IA
+2. Onglet "Export" → Bouton "Export HTML"
+3. Téléchargement automatique : `Bilan_NOM_Prenom_Date.html`
+4. Document professionnel avec :
+   - ✅ Charte graphique A2P complète
+   - ✅ Tous les calculs et badges
+   - ✅ Score de récupération global
+   - ✅ Prêt à partager/imprimer
+
+### 🖨️ Impression
+1. Assistant IA → Onglet "Export" → Bouton "Imprimer"
+2. Ou utilisez Ctrl+P
+3. Format A4 optimisé
+4. Éléments non imprimables masqués automatiquement
 
 ## 🔒 Sécurité et Confidentialité
 
@@ -283,10 +336,31 @@ Cette application a été conçue par un kinésithérapeute expert en rééducat
 - **Phase 4 (6-9 mois)** : Retour sport progressif
 - **Phase 5 (9-12 mois)** : Retour sport compétition
 
+## 📚 Documentation
+
+- 🚀 [Démarrage rapide (5 min)](./DEMARRAGE_RAPIDE.md)
+- 📖 [Guide d'utilisation complet](./GUIDE_UTILISATION.md)
+- 🖥️ [Installation Windows (.exe)](./INSTALLATION-WINDOWS.md)
+
+## 📊 Captures d'Écran
+
+### Interface Principale
+*Formulaire complet avec sections structurées*
+
+### Assistant IA
+*Panneau flottant avec score de récupération et recommandations*
+
+### Stroke Test
+*Évaluation interactive de l'effusion avec technique détaillée*
+
+### Bilan HTML Exporté
+*Document professionnel avec charte graphique A2P*
+
 ## 📧 Contact
 
 Pour toute question ou suggestion, n'hésitez pas à ouvrir une issue sur GitHub.
 
 ---
 
-**Développé avec ❤️ pour les professionnels de la kinésithérapie**
+**Développé avec ❤️ pour A2P Performance**
+*Excellence en Kinésithérapie du Sport*
