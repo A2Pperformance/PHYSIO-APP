@@ -39,3 +39,11 @@ Thumbs.db
 *.njsproj
 *.sln
 *.sw?
+
+# Python / Streamlit (mutuelles_tracker)
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+mutuelles_tracker/mutuelles.db
+mutuelles_tracker/.streamlit/

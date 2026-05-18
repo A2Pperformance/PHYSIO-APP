@@ -1,0 +1,13 @@
+date_soin,patient_code,mutuelle,numero_facture,montant_attendu,date_envoi,date_reglement,montant_regle,commentaire
+2026-04-02,PAT-001,Harmonie Mutuelle,F-2026-0001,45.00,2026-04-05,2026-04-18,45.00,Réglé en totalité
+2026-04-05,PAT-002,MGEN,F-2026-0002,60.00,2026-04-08,2026-04-30,40.00,Règlement partiel
+2026-04-10,PAT-003,Malakoff Humanis,F-2026-0003,55.00,2026-04-12,,,
+2026-04-12,PAT-004,Apivia,F-2026-0004,75.00,2026-04-15,,,En attente règlement
+2026-04-15,PAT-005,Mutuelle Générale,F-2026-0005,50.00,,,,Pas encore envoyée
+2026-04-20,PAT-006,Swiss Life,F-2026-0006,65.00,2026-04-21,,,
+2026-04-22,PAT-007,Aésio,F-2026-0007,40.00,2026-04-23,2026-05-10,40.00,
+2026-04-25,PAT-008,Harmonie Mutuelle,F-2026-0008,80.00,2026-04-26,,,Dossier complexe
+2026-04-28,PAT-009,MGEN,F-2026-0009,55.00,2026-04-29,2026-05-15,55.00,
+2026-05-02,PAT-010,Malakoff Humanis,F-2026-0010,45.00,2026-05-03,,,
+2026-05-05,PAT-011,Apivia,F-2026-0011,70.00,,,,À envoyer
+2026-05-08,PAT-012,Mutuelle Générale,F-2026-0012,60.00,2026-05-09,,,
